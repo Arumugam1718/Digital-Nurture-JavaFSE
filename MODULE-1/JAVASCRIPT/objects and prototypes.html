@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object</title>
+</head>
+<body>
+<div id="output"></div>
+<script>
+function Event(name,seats){
+    this.name = name;
+    this.seats = seats;
+}
+Event.prototype.checkAvailability = function(){
+    return this.seats > 0 ?
+    "Seats Available" :
+    "Full";
+}
+let event1 = new Event("Music Fest",20);
+document.getElementById("output").innerHTML =
+event1.name + "<br>" +
+event1.checkAvailability();
+</script>
+</body>
+</html>

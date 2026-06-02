@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Box Model</title>
+    <style>
+        .eventCard{
+            border: 3px solid black;
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+        }
+        input:focus{
+            outline: 3px solid blue;
+        }
+        .hidden{
+            visibility: hidden;
+        }
+        .none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="eventCard">
+    <h2>Music Event</h2>
+    <p>Join us for fun activities.</p>
+</div>
+<input type="text" placeholder="Enter Name">
+<p class="hidden">Hidden using visibility</p>
+<p class="none">Hidden using display none</p>
+</body>
+</html>

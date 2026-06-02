@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM Manipulation</title>
+</head>
+<body>
+<div id="events"></div>
+<button onclick="addCard()">Add Event</button>
+<script>
+    function addCard(){
+        let container =
+            document.querySelector("#events");
+        let card =
+            document.createElement("div");
+        card.innerHTML = "Music Event Registered";
+        container.appendChild(card);
+    }
+</script>
+</body>
+</html>

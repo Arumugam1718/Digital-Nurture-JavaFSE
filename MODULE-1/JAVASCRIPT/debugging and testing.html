@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debugging</title>
+</head>
+<body>
+<h2 id="output"></h2>
+<button onclick="testCode()">
+    Run Code
+</button>
+<script>
+function testCode(){
+    let seats = 20;
+    seats--;
+    document.getElementById("output").innerHTML =
+    "Updated Seats: " + seats;
+}
+</script>
+</body>
+</html>

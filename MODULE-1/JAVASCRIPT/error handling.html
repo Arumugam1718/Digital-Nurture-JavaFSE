@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error Handling</title>
+</head>
+<body>
+<h2>Available Events</h2>
+<div id="output"></div>
+<script>
+let events = [
+    {name:"Music Fest", seats:10},
+    {name:"Sports Day", seats:0}
+];
+let result = "";
+events.forEach(function(event){
+    if(event.seats > 0){
+        result += event.name + "<br>";
+    }
+});
+try{
+    let data = undefined;
+    data.name;
+}
+catch(error){
+    result += "<br>Error Handled Successfully";
+}
+document.getElementById("output").innerHTML = result;
+</script>
+</body>
+</html>

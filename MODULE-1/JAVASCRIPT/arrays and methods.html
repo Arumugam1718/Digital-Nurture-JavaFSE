@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrays</title>
+</head>
+<body>
+<div id="output"></div>
+<script>
+let events = [];
+events.push("Music Event");
+events.push("Workshop on Baking");
+let cards = events.map(function(event){
+    return event;
+});
+document.getElementById("output").innerHTML =
+cards.join("<br>");
+</script>
+</body>
+</html>

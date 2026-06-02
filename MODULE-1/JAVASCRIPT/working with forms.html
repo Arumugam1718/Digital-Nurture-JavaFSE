@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Forms</title>
+</head>
+<body>
+<form id="registerForm">
+    <input type="text" name="username"
+    placeholder="Enter Name">
+    <br><br>
+    <input type="email" name="email"
+    placeholder="Enter Email">
+    <br><br>
+    <select name="event">
+        <option>Music</option>
+        <option>Sports</option>
+    </select>
+    <br><br>
+    <button type="submit">
+        Submit
+    </button>
+</form>
+<p id="error"></p>
+<script>
+    document.getElementById("registerForm")
+    .addEventListener("submit", function(e){
+        e.preventDefault();
+        let name =
+        this.elements["username"].value;
+        if(name == ""){
+            document.getElementById("error")
+            .innerHTML = "Name required";
+        }
+        else{
+            alert("Form Submitted");
+        }
+    });
+</script>
+</body>
+</html>

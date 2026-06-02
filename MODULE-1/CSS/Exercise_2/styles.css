@@ -1,0 +1,13 @@
+h1{
+    color: darkblue;
+    text-align: center;
+}
+p{
+    color: gray;
+    line-height: 25px;
+}
+.cta-button{
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event Handling</title>
+</head>
+<body>
+<button onclick="register()">
+    Register
+</button>
+<br><br>
+<select onchange="filterCategory(this.value)">
+    <option>Music</option>
+    <option>Sports</option>
+</select>
+<br><br>
+<input type="text"
+placeholder="Search Event"
+onkeydown="searchEvent()">
+<script>
+    function register(){
+        alert("Registered Successfully");
+    }
+    function filterCategory(category){
+        console.log("Category:", category);
+    }
+    function searchEvent(){
+        console.log("Searching...");
+    }
+</script>
+</body>
+</html>

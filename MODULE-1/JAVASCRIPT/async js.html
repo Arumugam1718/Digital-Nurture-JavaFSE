@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Async JS</title>
+</head>
+<body>
+<h2 id="output">Loading...</h2>
+<script>
+function fetchEvents(){
+    return new Promise(function(resolve){
+        setTimeout(function(){
+            resolve(["Music Fest","Sports Day"]);
+        },2000);
+    });
+}
+async function loadEvents(){
+    let result = await fetchEvents();
+    document.getElementById("output").innerHTML =
+    result.join("<br>");
+}
+loadEvents();
+</script>
+</body>
+</html>
