@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future City Community Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #bannerHero {
+            background-color: transparent !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="app-navbar">
+        <div class="navbar-container">
+            <a class="navbar-brand-logo" href="#discover-section">
+                <i class="fa-solid fa-layer-group"></i> FutureCity Hub
+            </a>
+            
+            <div class="navbar-menu-options" id="mainNav">
+                <ul class="nav-links-list">
+                    <li><a class="nav-link-anchor active" href="#discover-section">Discover</a></li>
+                    <li><a class="nav-link-anchor" href="#events-section">Events</a></li>
+                    <li><a class="nav-link-anchor" href="#registration-section">Register</a></li>
+                    <li><a class="nav-link-anchor" href="#gallery-section">Gallery</a></li>
+                </ul>
+                <form class="nav-search-form" onsubmit="return false;">
+                    <input class="nav-search-input" id="inputGlobalSearch" type="search" placeholder="Search events...">
+                    <button class="nav-search-btn" type="button"><i class="fa-solid fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section id="discover-section">
+            <div id="bannerHero" class="container">
+                <div class="header-hero-wrapper">
+                    <h1 class="header-hero-title" id="heroHeading">Explore your metropolis like <span>never before.</span></h1>
+                    <p class="header-hero-subtitle">Find high-end activities, interact with regional creators, and sync with your local tech community.</p>
+                    
+                    <div class="header-hero-actions">
+                        <a href="#events-section" class="btn btn-primary btn-large">Find Activities</a>
+                        <button id="btnGeoLocate" class="btn btn-outline btn-large"><i class="fa-solid fa-location-crosshairs"></i> Search Nearby</button>
+                    </div>
+                    <p id="geoCoordsFeedback" class="coords-display"></p>
+
+                    <div class="promo-offer-card">
+                        <i class="fa-solid fa-bolt" style="color: #F59E0B; font-size: 1.5rem;"></i>
+                        <span class="offer-text" style="color: #E2E8F0;">
+                            Promo Deal: <span class="accent-badge" style="color: white; font-weight: 800;">Sign up early for 20% discount</span> on priority tickets!
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container layout-sidebar-grid">
+            <aside class="sidebar-filter-wrapper">
+                <div class="panel-glass-card">
+                    <h4 class="sidebar-heading"><i class="fa-solid fa-sliders"></i> Refine Activities</h4>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-control" id="selectCategoryFilter">
+                            <option value="all">All Events</option>
+                            <option value="music">Music & Arts</option>
+                            <option value="sports">Athletics</option>
+                            <option value="tech">Technology</option>
+                            <option value="food">Culinary</option>
+                        </select>
+                    </div>
+                    <div class="sidebar-btn-group">
+                        <button class="btn btn-primary w-100" onclick="filterPortalActivities()">Apply Filters</button>
+                        <button class="btn btn-outline w-100" id="btnResetPreferences">Reset Settings</button>
+                    </div>
+                    
+                    <div class="mt-4" style="margin-top: 40px;">
+                        <h4 class="sidebar-heading"><i class="fa-solid fa-satellite-dish"></i> Realtime Updates</h4>
+                        <div class="live-update-feed">
+                            <p><strong style="color: white;">Platform Update:</strong> Fresh coding bootcamps listed on the dashboard.</p>
+                            <p><strong style="color: white;">Notice:</strong> City run signups terminate in two days.</p>
+                            <p><strong style="color: white;">Bulletin:</strong> Renowned headliner verified for the evening show.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="main-content">
+                <section id="events-section" class="content-section">
+                    <div class="content-section-header">
+                        <h2 class="section-heading">Featured Local Activities</h2>
+                        <div class="view-mode-toggles">
+                            <button type="button" class="btn btn-outline active" id="btnListView"><i class="fa-solid fa-list"></i></button>
+                            <button type="button" class="btn btn-outline" id="btnGridView"><i class="fa-solid fa-grid-2"></i> Grid</button>
+                        </div>
+                    </div>
+                    
+                    <div class="events-cards-grid" id="gridEventsContainer">
+                    </div>
+                </section>
+                <section id="registration-section" class="content-section form-section panel-glass-card">
+                    <h2 class="section-heading" style="margin-bottom: 40px;">Reserve Your Entry Pass</h2>
+                    
+                    <form id="formRegistration" class="signup-html-form" novalidate>
+                        <div class="form-field-row">
+                            <div class="form-group col-split">
+                                <label for="inputFullName">Your Full Name</label>
+                                <input type="text" class="form-control" id="inputFullName" placeholder="Enter your name" required autofocus>
+                            </div>
+                            <div class="form-group col-split">
+                                <label for="inputEmailAddress">Digital Contact (Email)</label>
+                                <input type="email" class="form-control" id="inputEmailAddress" placeholder="name@domain.com" required>
+                            </div>
+                        </div>
+                        <div class="form-field-row">
+                            <div class="form-group col-split">
+                                <label for="inputContactPhone">Phone Link</label>
+                                <input type="tel" class="form-control" id="inputContactPhone" placeholder="123-456-7890" required onblur="validatePhoneNumber(this)">
+                                <div class="input-error-label" id="phoneError">Format must be: 123-456-7890</div>
+                            </div>
+                            <div class="form-group col-split">
+                                <label for="inputEventDate">Preferred Date</label>
+                                <input type="date" class="form-control" id="inputEventDate" required>
+                            </div>
+                        </div>
+                        <div class="form-field-row">
+                            <div class="form-group col-split" style="flex: 2;">
+                                <label for="selectExperienceType">Choose Experience</label>
+                                <select class="form-control" id="selectExperienceType" required onchange="calculateTotalFee()">
+                                    <option value="" disabled selected>Choose your event...</option>
+                                    <option value="music" data-fee="25">Music Festival ($25)</option>
+                                    <option value="sports" data-fee="15">Athletics ($15)</option>
+                                    <option value="tech" data-fee="50">Tech Workshop ($50)</option>
+                                    <option value="free" data-fee="0">Open Community (Free)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-split">
+                                <div class="cost-container">
+                                    <span class="cost-label">Calculated Pricing</span>
+                                    <span class="cost-value" id="txtCalculatedFee">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="textareaSpecialNotes">Additional Requests</label>
+                            <textarea class="form-control" id="textareaSpecialNotes" placeholder="Any special requirements?" rows="3"></textarea>
+                            <div class="character-tally"><span id="spanCharCounter">0</span> / 200 max length</div>
+                        </div>
+                        <div class="form-submit" style="text-align: right;">
+                            <button type="submit" class="btn btn-primary btn-large" id="btnSubmitForm">Book My Tickets <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i></button>
+                        </div>
+                    </form>
+                    
+                    <div id="boxSuccessReceipt" class="receipt-panel hidden">
+                        <h5 class="receipt-status-title"><i class="fa-solid fa-shield-check"></i> Booking Verified</h5>
+                        <output id="outConfirmationReceipt"></output>
+                    </div>
+                </section>
+                <section id="gallery-section" class="content-section">
+                    <h2 class="section-heading">Photo Repository</h2>
+                    <div class="gallery-table-responsive">
+                        <table class="gallery-grid-table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <figure>
+                                            <img src="assets/images/event1.png" alt="Summer Festival" title="Music & Arts" class="thumbnail-img styled-img-border" ondblclick="expandImagePreview(this)">
+                                            <figcaption>Live Music</figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <figure>
+                                            <img src="assets/images/event2.png" alt="Concert" title="Neon Concert" class="thumbnail-img styled-img-border" ondblclick="expandImagePreview(this)">
+                                            <figcaption>Night Lights</figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <figure>
+                                            <img src="assets/images/event3.png" alt="Food Festival" title="Culinary Experience" class="thumbnail-img styled-img-border" ondblclick="expandImagePreview(this)">
+                                            <figcaption>Food Gathering</figcaption>
+                                        </figure>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <figure>
+                                            <img src="assets/images/event4.png" alt="Art Exhibition" title="Modern Gallery" class="thumbnail-img styled-img-border" ondblclick="expandImagePreview(this)">
+                                            <figcaption>Creative Studio</figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <figure>
+                                            <img src="assets/images/event5.png" alt="Marathon" title="City Run" class="thumbnail-img styled-img-border" ondblclick="expandImagePreview(this)">
+                                            <figcaption>Street Run</figcaption>
+                                        </figure>
+                                    </td>
+                                    <td>
+                                        <figure>
+                                            <img src="assets/images/event6.png" alt="Tech Hub" title="Innovation Hub" class="thumbnail-img styled-img-border" ondblclick="expandImagePreview(this)">
+                                            <figcaption>Tech Meetup</figcaption>
+                                        </figure>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <div class="broadcast-faq-layout">
+                    <div class="panel-glass-card" style="margin: 0;">
+                        <h3 class="sidebar-heading">Transmission</h3>
+                        <div class="video-player-box">
+                            <video id="communityVideo" controls oncanplay="videoReadyCallback()" poster="assets/images/event6.png">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            </video>
+                            <div id="videoStatus" class="status-pill hidden">
+                                Stream Ready
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-glass-card" style="margin: 0;">
+                        <h3 class="sidebar-heading">Help Directory</h3>
+                        <div class="accordion-faq-wrapper">
+                            <details class="faq-details-block" open>
+                                <summary>How do I book my entry tickets?</summary>
+                                <div class="faq-body-text">
+                                    Utilize the registration module above. Digital payment instructions will be relayed to your provided email address upon confirmation.
+                                </div>
+                            </details>
+                            <details class="faq-details-block">
+                                <summary>What is the refund and cancellation rule?</summary>
+                                <div class="faq-body-text">
+                                    Access passes can be revoked and refunded up to 48 hours prior to the event initiation sequence via the support portal.
+                                </div>
+                            </details>
+                            <details class="faq-details-block">
+                                <summary>Is there an age limit for attendees?</summary>
+                                <div class="faq-body-text">
+                                    Event restrictions vary. Please check the specific meta-data displayed in the event details overlay.
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+                <section class="content-section" style="margin-top: 50px;">
+                    <div class="admin-profile-panel">
+                        <div class="admin-card-header">
+                            <img src="https://ui-avatars.com/api/?name=System+Admin&background=0D8ABC&color=fff&size=128" alt="Profile" class="avatar-img">
+                            <h5>SysAdmin</h5>
+                            <p>Level 5 Clearance</p>
+                        </div>
+                        <div class="admin-card-body">
+                            <h4>Helpdesk Center</h4>
+                            <p>Facing portal glitches? Our tech team and support agents are active round-the-clock to coordinate your experience.</p>
+                            <div class="admin-btn-group">
+                                <a href="mailto:support@nexgen.local" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Ticket</a>
+                                <a href="tel:+1234567890" class="btn btn-outline"><i class="fa-solid fa-headset"></i> Call Helpline</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="container main-footer-grid">
+            <div class="footer-col">
+                <h5 class="footer-col-title"><i class="fa-solid fa-layer-group"></i> FutureCity Hub</h5>
+                <p>Building modern structures for city engagement and unified social portals.</p>
+            </div>
+            <div class="footer-col">
+                <h5 class="footer-col-title">Navigation</h5>
+                <ul class="footer-anchor-list">
+                    <li><a href="#discover-section">Portal Home</a></li>
+                    <li><a href="#events-section">Activity Registry</a></li>
+                    <li><a href="help.html" target="_blank">Help Guide <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; margin-left: 5px;"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-col" id="contact">
+                <h5 class="footer-col-title">Network Channels</h5>
+                <div class="footer-social-wrapper">
+                    <a href="#" class="footer-social-btn"><i class="fa-brands fa-discord"></i></a>
+                    <a href="#" class="footer-social-btn"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="footer-social-btn"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright-panel">
+            <p>&copy; 2025 FutureCity Community Hub. All rights reserved.</p>
+        </div>
+    </footer>
+    <div id="modalEventDetails" class="modal-container">
+        <div class="modal-dialog-box">
+            <div class="dialog-header">
+                <h5 id="lblModalEventTitle">Activity Specs</h5>
+                <button class="modal-close-trigger" onclick="closeActiveDialog('modalEventDetails')"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body-content">
+                <img id="imgModalEvent" src="" alt="Event" class="modal-banner-image">
+                <div style="padding-top: 30px;">
+                    <div class="modal-badge-wrapper">
+                        <span id="lblModalEventCategory" class="custom-badge">Category</span>
+                        <span id="lblModalEventFee" class="fee-display-pill">Fee</span>
+                    </div>
+                    <p id="lblModalEventDesc" class="modal-description">Description payload.</p>
+                    
+                    <div class="modal-meta-grid">
+                        <div><i class="fa-solid fa-calendar-day"></i> <span id="lblModalEventDate">Date</span></div>
+                        <div><i class="fa-solid fa-location-dot"></i> <span id="lblModalEventLocation">Location</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-action-footer">
+                <button class="btn btn-outline" onclick="closeActiveDialog('modalEventDetails')">Dismiss</button>
+                <button class="btn btn-primary" onclick="jumpToRegistration()">Book Tickets</button>
+            </div>
+        </div>
+    </div>
+    <div id="modalImageZoom" class="modal-container image-modal">
+        <div class="modal-dialog-box">
+            <button class="modal-close-trigger white-close" onclick="closeActiveDialog('modalImageZoom')"><i class="fa-solid fa-xmark"></i></button>
+            <img id="imgEnlarged" src="" alt="Enlarged view">
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

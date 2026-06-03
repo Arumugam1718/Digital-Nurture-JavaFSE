@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 14.2 - Sidebar Responsiveness</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 bg-dark text-white p-4 vh-100 d-none d-md-block">
+            <h3>Sidebar Menu</h3>
+            <ul class="list-unstyled">
+                <li class="mb-2">Control Panel</li>
+                <li class="mb-2">Account Profile</li>
+                <li class="mb-2">App Configuration</li>
+                <li class="mb-2">Analytics Data</li>
+            </ul>
+        </div>
+        <div class="col-md-9 p-4">
+            <h2>Primary Content Area</h2>
+            <p>
+                The primary container is persistently displayed. The left-side navigation sidebar is rendered only on medium screen viewports (tablets/desktops) and wider.
+            </p>
+        </div>
+    </div>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 18.2 - Expandable Accordion</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="mt-5 container">
+    <h2 class="text-center mb-4">
+        Task 18.2 - Collapsible Sections
+    </h2>
+    <div class="accordion" id="helpAccordion">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#secOne">
+                    Category 1
+                </button>
+            </h2>
+            <div id="secOne"
+                 class="accordion-collapse collapse show"
+                 data-bs-parent="#helpAccordion">
+                <div class="accordion-body">
+                    This is the body content corresponding to Category 1.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#secTwo">
+                    Category 2
+                </button>
+            </h2>
+            <div id="secTwo"
+                 class="accordion-collapse collapse"
+                 data-bs-parent="#helpAccordion">
+                <div class="accordion-body">
+                    This is the body content corresponding to Category 2.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#secThree">
+                    Category 3
+                </button>
+            </h2>
+            <div id="secThree"
+                 class="accordion-collapse collapse"
+                 data-bs-parent="#helpAccordion">
+                <div class="accordion-body">
+                    This is the body content corresponding to Category 3.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

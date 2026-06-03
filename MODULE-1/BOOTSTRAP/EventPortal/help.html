@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Documentation - Community Event Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: #f8f9fa;">
+
+    <nav class="site-navigation" style="margin-bottom: 40px; position: static; transform: none; width: 100%; max-width: 100%;">
+        <div class="container navigation-inner">
+            <a class="nav-logo" href="index.html">
+                <i class="fa-solid fa-arrow-left icon-primary"></i> Back to Portal
+            </a>
+            <span style="color: white; font-weight: 600;">Documentation</span>
+        </div>
+    </nav>
+
+    <main class="container split-layout-grid" style="max-width: 800px; display: block;">
+        
+        <div class="card shadow-sm border-0 mb-4" style="background: white; border: 1px solid #e2e8f0; color: #1e293b;">
+            <div class="card-body">
+                <h1 class="card-title text-primary" style="color: #3b82f6;"><i class="fa-solid fa-book-open"></i> Technical Documentation</h1>
+                <p class="text-muted" style="color: #64748b;">Overview of the system architecture and vanilla implementation.</p>
+                <hr class="divider" style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+                
+                <h3 class="mt-4" style="margin-top: 20px;"><i class="fa-solid fa-palette text-secondary"></i> Custom Styling without Frameworks</h3>
+                <p>This project uses a fully custom CSS architecture (Vanilla CSS) designed to be lightweight, fast, and completely independent of heavy frameworks like Bootstrap.</p>
+                
+                <h4 class="mt-4" style="margin-top: 20px;">Styling Architecture</h4>
+                <ul>
+                    <li><strong>CSS Variables:</strong> All theme colors are mapped in <code>styles.css</code> under the <code>:root</code> pseudo-class.</li>
+                    <li><strong>CSS Grid & Flexbox:</strong> Layouts utilize native CSS Grid (for gallery and event cards) and Flexbox (for navigation and forms).</li>
+                    <li><strong>Responsive Design:</strong> Media queries adapt the layout for mobile users without relying on pre-defined column classes.</li>
+                </ul>
+                
+                <div class="success-box mt-4" style="display: block; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; margin-top: 20px;">
+                    <h5 style="color: #065f46;"><i class="fa-solid fa-lightbulb"></i> Customizing Colors</h5>
+                    <p class="mb-0" style="margin-bottom: 0;">To change the primary theme color, open <code>styles.css</code> and edit the <code>--theme-bg-dark</code> and <code>--gradient-primary</code> variables at the top of the file.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm border-0 mb-5" style="background: white; border: 1px solid #e2e8f0; color: #1e293b;">
+            <div class="card-body">
+                <h3 class="card-title text-primary" style="color: #3b82f6;"><i class="fa-solid fa-code"></i> Vanilla JavaScript Integration</h3>
+                <p>The logic is built purely on modern ES6+ vanilla JavaScript.</p>
+                
+                <ul>
+                    <li><strong>Modals:</strong> Custom modals are toggled by applying the <code>.show</code> class via JS <code>classList.add()</code>.</li>
+                    <li><strong>Data Fetching:</strong> Uses native <code>fetch()</code> API with <code>async/await</code> for mock API integrations.</li>
+                    <li><strong>DOM Updates:</strong> Utilizes <code>document.createElement</code> and template literals for fast rendering.</li>
+                </ul>
+
+                <hr class="divider" style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;">
+                <p class="text-center text-muted mb-0" style="text-align: center; color: #64748b; margin-bottom: 0;">For advanced deployment instructions, please refer to the main <code>README.md</code>.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="site-footer" style="margin-top: auto; padding: 40px 0; background: #0b0f19;">
+        <div class="container text-center" style="text-align: center;">
+            <p>&copy; 2025 Local Community Event Portal Documentation</p>
+        </div>
+    </footer>
+
+</body>
+</html>

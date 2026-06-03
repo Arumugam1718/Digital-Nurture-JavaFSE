@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9.2 - Buttons & Toggles</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="mt-5 container">
+    <h2 class="text-center mb-4">
+        Segmented Control & Checkbox Toggles
+    </h2>
+    <h4 class="mb-3">Segmented Group</h4>
+    <div class="btn-group mb-4" role="group">
+        <button class="btn btn-primary" type="button">Start</button>
+        <button class="btn btn-primary" type="button">Center</button>
+        <button class="btn btn-primary" type="button">End</button>
+    </div>
+    <h4 class="mb-3">Toggle Buttons</h4>
+    <div class="d-flex gap-2">
+        <div>
+            <input class="btn-check" id="togCheck1" autocomplete="off" type="checkbox">
+            <label class="btn btn-outline-success" for="togCheck1">
+                Toggle One
+            </label>
+        </div>
+        <div>
+            <input class="btn-check" id="togCheck2" autocomplete="off" type="checkbox">
+            <label class="btn btn-outline-danger" for="togCheck2">
+                Toggle Two
+            </label>
+        </div>
+        <div>
+            <input class="btn-check" id="togCheck3" autocomplete="off" type="checkbox">
+            <label class="btn btn-outline-primary" for="togCheck3">
+                Toggle Three
+            </label>
+        </div>
+    </div>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

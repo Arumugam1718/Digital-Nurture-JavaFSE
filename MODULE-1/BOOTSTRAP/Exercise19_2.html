@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 19.2 - Push Toasts</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="mt-5 text-center container">
+    <h2 class="mb-4">
+        Task 19.2 - Toast Popup Messaging
+    </h2>
+    <button type="button" class="btn btn-primary" id="btnShowToast">
+        Trigger Toast
+    </button>
+</div>
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="toastAlert" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">
+                System Alert
+            </strong>
+            <button type="button"
+                    class="btn-close"
+                    data-bs-dismiss="toast"
+                    aria-label="Close">
+            </button>
+        </div>
+        <div class="toast-body text-start">
+            Hello! This is a Toast message alert.
+        </div>
+    </div>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    const btnToast = document.getElementById('btnShowToast');
+    const toastElement = document.getElementById('toastAlert');
+
+    if (btnToast && toastElement) {
+        const bsToastObj = new bootstrap.Toast(toastElement);
+        btnToast.addEventListener('click', () => {
+            bsToastObj.show();
+        });
+    }
+</script>
+</body>
+</html>

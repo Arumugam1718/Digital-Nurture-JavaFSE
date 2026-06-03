@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 8.1 - Registration</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="mt-5 container">
+    <h2 class="text-center mb-4">
+        Join Our Community
+    </h2>
+    <form>
+        <div class="mb-3">
+            <label class="form-label" for="regFullName">Your Full Name</label>
+            <input class="form-control" id="regFullName" placeholder="e.g. John Doe" type="text">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="regEmailAddress">Your Email Address</label>
+            <input class="form-control" id="regEmailAddress" placeholder="e.g. john@example.com" type="email">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="regUsername">Choose Username</label>
+            <div class="input-group">
+                <span class="input-group-text">@</span>
+                <input class="form-control" id="regUsername" placeholder="username" type="text">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="regPassword">Secure Password</label>
+            <input class="form-control" id="regPassword" placeholder="Minimum 8 characters" type="password">
+        </div>
+        <div class="mb-3 form-check">
+            <input class="form-check-input" id="acceptTerms" type="checkbox">
+            <label class="form-check-label" for="acceptTerms">
+                Accept Terms & Conditions
+            </label>
+        </div>
+        <button class="btn btn-primary" type="submit">
+            Sign Up
+        </button>
+    </form>
+</div>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
